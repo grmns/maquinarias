@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Editar Maquinaria{% endblock %}
+
+{% block content %}
+    <h1 class="mb-4">Editar Maquinaria</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_nombre">Nombre:</label>
+            {{ form.nombre }}
+        </div>
+        <div class="form-group">
+            <label for="id_imagen">Imagen:</label>
+            {{ form.imagen }}
+        </div>
+        <div class="form-group">
+            <label for="id_caracteristicas">Características:</label>
+            {{ form.caracteristicas }}
+        </div>
+        <button type="submit" class="btn btn-custom">Guardar</button>
+        <a href="{% url 'lista_maquinarias' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+{% endblock %}
